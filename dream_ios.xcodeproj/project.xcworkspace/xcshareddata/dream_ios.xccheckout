@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B3B31D7E-7974-459F-823F-53AA901DE389</string>
+	<key>IDESourceControlProjectName</key>
+	<string>dream_ios</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C7C89E7F-135A-41E8-B847-24B31A457A16</key>
+		<string>https://github.com/hellosword/dream_ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>dream_ios.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C7C89E7F-135A-41E8-B847-24B31A457A16</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/hellosword/dream_ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C7C89E7F-135A-41E8-B847-24B31A457A16</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C7C89E7F-135A-41E8-B847-24B31A457A16</string>
+			<key>IDESourceControlWCCName</key>
+			<string>dream_ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>

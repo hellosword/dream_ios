@@ -11,5 +11,5 @@
 @interface drAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) NSHTTPCookie *cookie;
 @end

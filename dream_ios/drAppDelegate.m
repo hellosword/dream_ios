@@ -13,6 +13,26 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSDictionary *properties = [[NSMutableDictionary alloc] init];
+    self.cookie = [[NSHTTPCookie alloc] initWithProperties:properties];
+    /*
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)
+    {
+        self.window.clipsToBounds = YES;
+        [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleLightContent];
+        
+        UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+        if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight)
+        {
+            self.window.frame =  CGRectMake(20, 0,self.window.frame.size.width-20,self.window.frame.size.height);
+            self.window.bounds = CGRectMake(20, 0, self.window.frame.size.width, self.window.frame.size.height);
+        } else
+        {
+            self.window.frame =  CGRectMake(0,20,self.window.frame.size.width,self.window.frame.size.height-20);
+            self.window.bounds = CGRectMake(0, 20, self.window.frame.size.width, self.window.frame.size.height);
+        }
+    }*/
+    
     return YES;
     
 }
