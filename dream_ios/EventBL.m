@@ -30,7 +30,7 @@
 -(void) createEvent:(drEvent*)model
 {
     self.dao.delegate = self;
-    [self.dao create:model];
+    [self.dao createEvent:model];
 }
 
 //删除Note方法
@@ -47,12 +47,59 @@
     [self.dao findAll];
 }
 
-
+-(void)getOneEvent:(drEvent *)model
+{
+    self.dao.delegate = self;
+    [self.dao getOneEvent:model];
+}
 //修改数据方法
 -(void) modifyEvent:(drEvent*)model
 {
     self.dao.delegate = self;
     [self.dao modify:model];
+}
+
+
+-(void) pubComment:(drComment*)model
+{
+    self.dao.delegate = self;
+    [self.dao pubComment:model];
+}
+
+-(void) getMoreComments:(drEvent *)model
+{
+    self.dao.delegate = self;
+    [self.dao getMoreComments:model];
+}
+
+-(void) applyForEvent:(drEvent*)model by:(drUser*)user{
+    self.dao.delegate = self;
+    [self.dao applyForEvent:model by:user];
+    
+}
+
+-(void) getAllMyPubEvents:(drEvent*)model{
+    self.dao.delegate = self;
+    [self.dao getAllMyPubEvents:model];
+    
+}
+
+-(void) getAllMyAttEvents:(drEvent*)model{
+    self.dao.delegate = self;
+    [self.dao getAllMyAttEvents:model];
+    
+}
+
+-(void) useTicket:(drEvent*)model code:(NSString*)code{
+    self.dao.delegate = self;
+    [self.dao useTicket:model code:code];
+    
+}
+
+-(void) getAllParticipator:(drEvent*)model{
+    self.dao.delegate = self;
+    [self.dao getAllParticipator:model];
+    
 }
 
 #pragma --mark NoteDAODelegate 委托方法
@@ -66,6 +113,16 @@
 - (void)findAllFailed:(NSError *)error
 {
     [_delegate findAllEventsFailed:error];
+}
+
+
+- (void)getOneEventFinished:(drEvent*)model
+{
+    [_delegate getOneEventFinished:model];
+}
+- (void)getOneEventFailed:(NSError*)error
+{
+    [_delegate getOneEventFailed:error];
 }
 
 //插入Note方法 成功
@@ -102,4 +159,57 @@
     [_delegate modifyEventFailed:error];
 }
 
+
+- (void)pubCommentFinished:(drComment *)model{
+    [_delegate pubCommentFinished:model];
+    
+}
+- (void)pubCommentFailed:(NSError *)error{
+    [_delegate pubCommentFailed:error];
+    
+}
+
+- (void)getMoreCommentsFinished:(NSMutableArray *)list{
+    [_delegate getMoreCommentsFinished:list];
+    
+}
+- (void)getMoreCommentsFailed:(NSError *)error{
+    [_delegate getMoreCommentsFailed:error];
+    
+}
+
+-(void) applyForEventFinished{
+    [_delegate applyForEventFinished];
+}
+-(void) applyForEventFailed:(NSError *)error{
+    [_delegate applyForEventFailed:error];
+}
+
+-(void) getAllMyPubEventsFinished:(NSMutableArray *)list{
+    [_delegate getAllMyPubEventsFinished:list];
+}
+-(void) getAllMyPubEventsFailed:(NSError *)error{
+    [_delegate getAllMyPubEventsFailed:error];
+}
+
+-(void) getAllMyAttEventsFinished:(NSMutableArray *)list{
+    [_delegate getAllMyAttEventsFinished:list];
+}
+-(void) getAllMyAttEventsFailed:(NSError *)error{
+    [_delegate getAllMyAttEventsFailed:error];
+}
+
+-(void) useTicketFinished{
+    [_delegate useTicketFinished];
+}
+-(void) useTicketFailed:(NSError *)error{
+    [_delegate useTicketFailed:error];
+}
+
+-(void) getAllParticipatorFinished:(NSMutableArray *)list{
+    [_delegate getAllParticipatorFinished:list];
+}
+-(void) getAllParticipatorFailed:(NSError *)error{
+    [_delegate getAllParticipatorFailed:error];
+}
 @end

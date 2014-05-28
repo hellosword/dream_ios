@@ -13,6 +13,10 @@
 
 @optional
 //
+- (void)InitUserFinished:(drUser *)model;
+- (void)InitUserFailed:(NSError *)error;
+
+//
 - (void)GetConfirmCodeFinished:(drUser *)model;
 - (void)GetConfirmCodeFailed:(NSError *)error;
 
@@ -30,6 +34,12 @@
 //
 - (void)CheckoutUserFinished:(drUser *)model;
 - (void)CheckoutUserFailed:(NSError *)error;
+
+- (void)getUserInfoFinished:(drUser *)model;
+- (void)getUserInfoFailed:(NSError *)error;
+
+- (void)updateUserInfoFinished:(drUser *)model;
+- (void)updateUserInfoFailed:(NSError *)error;
 
 /*
 - (void)CheckUserFinished:(NSMutableArray *)list;

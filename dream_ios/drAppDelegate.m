@@ -7,14 +7,79 @@
 //
 
 #import "drAppDelegate.h"
-
+#import "AppInstance.h"
+#import "ASIFormDataRequest.h"
+#import "NSString+URLEncoding.h"
+#import "NSNumber+Message.h"
 @implementation drAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    NSDictionary *properties = [[NSMutableDictionary alloc] init];
-    self.cookie = [[NSHTTPCookie alloc] initWithProperties:properties];
+    
+    if(_cookie==nil){
+        //drAppDelegate *myDelegate0 = [[UIApplication sharedApplication] delegate];
+        NSDictionary *properties = [[NSMutableDictionary alloc] init];
+        [properties setValue:@"Test" forKey:NSHTTPCookieValue];
+        [properties setValue:@"ASIHTTPRequestTestCookie" forKey:NSHTTPCookieName];
+        [properties setValue:HOST_NAME forKey:NSHTTPCookieDomain];
+        [properties setValue:[NSDate dateWithTimeIntervalSinceNow:365*24*60*60] forKey:NSHTTPCookieExpires];
+        [properties setValue:@"/asi-http-request/tests" forKey:NSHTTPCookiePath];
+        //myDelegate0.cookie = [[NSHTTPCookie alloc] initWithProperties:properties];
+        if(_sessionId!=nil){
+            [properties setValue:_sessionId forKey:@"JSESSIONID"];
+        }
+        _cookie = [[NSHTTPCookie alloc] initWithProperties:properties];
+    }
+    if(_user==nil){
+        _user = [drUser new];
+    }
+    if(_user.user_alias==nil){
+        //login.action?user_name=x&user_password=x
+        NSString *str = [NSString stringWithFormat:@"%@/%@",HOST_NAME,@"json/init.action"];
+        NSURL *url = [NSURL URLWithString:[str URLEncodedString]];
+        NSLog(@"url-->%@",[url description]);
+        __weak ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+        
+        //[properties setValue:[@"Test Value" encodedCookieValue] forKey:NSHTTPCookieValue];
+        drAppDelegate *myDelegate0 = [[UIApplication sharedApplication] delegate];
+        [request setUseCookiePersistence:NO];
+        [request setRequestCookies:[NSMutableArray arrayWithObject:myDelegate0.cookie]];
+        
+        
+        [request setCompletionBlock:^{
+            
+            NSData *data  = [request responseData];
+            NSLog(@"response-->%@\n",[data description]);
+            NSDictionary *resDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            NSNumber *resultCodeNumber = [resDict objectForKey:@"error_type"];
+            if ([resultCodeNumber integerValue] ==0)
+            {
+                NSString *user_alias= [resDict objectForKey:@"user_alias"];
+                NSString *user_tag = [resDict objectForKey:@"user_tag"];
+                _user.user_alias = user_alias;
+                _user.user_tag = user_tag;
+                /**/
+                NSArray *cookies = [ request responseCookies ];
+                // 打印 sessionid
+                NSHTTPCookie *cookie = nil ;
+                for (cookie in cookies) {
+                    if ([[cookie name ] isEqualToString : @"JSESSIONID" ]) {
+                        NSLog ( @"session name:%@,value:%@" ,[cookie name ],[cookie value ]);
+                        myDelegate0.cookie=cookie;
+                        _sessionId=[cookie value ];
+                    }
+                }
+            } else {
+            }
+        }];
+        [request setFailedBlock:^{
+            //
+        }];
+        [request startAsynchronous];
+    }
+    //NSDictionary *properties = [[NSMutableDictionary alloc] init];
+    //self.cookie = [[NSHTTPCookie alloc] initWithProperties:properties];
     /*
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)
     {

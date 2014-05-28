@@ -34,5 +34,10 @@
  - (void)CheckUserFinished:(NSMutableArray *)list;
  - (void)CheckUserFailed:(NSError *)error;
  */
+- (void)getUserInfoFinished:(drUser *)model;
+- (void)getUserInfoFailed:(NSError *)error;
+
+- (void)updateUserInfoFinished:(drUser *)model;
+- (void)updateUserInfoFailed:(NSError *)error;
 
 @end

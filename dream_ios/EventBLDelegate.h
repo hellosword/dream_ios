@@ -1,25 +1,41 @@
-
+#import "drEvent.h"
 
 @protocol EventBLDelegate
 
 @optional
-//查询所有数据方法 成功
 - (void)findAllEventsFinished:(NSMutableArray *)list;
-//查询所有数据方法 失败
 - (void)findAllEventsFailed:(NSError *)error;
 
 - (void)createEventFinished;
 - (void)createEventFailed:(NSError *)error;
 
-//删除Note方法 成功
 - (void)removeEventFinished;
-//删除Note方法 失败
 - (void)removeEventFailed:(NSError *)error;
 
-//修改Note方法 成功
 - (void)modifyEventFinished;
-//修改Note方法 失败
 - (void)modifyEventFailed:(NSError *)error;
 
+- (void)getOneEventFinished:(drEvent *)model;
+- (void)getOneEventFailed:(NSError *)error;
 
+- (void)pubCommentFinished:(drComment *)model;
+- (void)pubCommentFailed:(NSError *)error;
+
+- (void)getMoreCommentsFinished:(NSMutableArray *)list;
+- (void)getMoreCommentsFailed:(NSError *)error;
+
+-(void) applyForEventFinished;
+-(void) applyForEventFailed:(NSError *)error;
+
+-(void) getAllMyPubEventsFinished:(NSMutableArray *)list;
+-(void) getAllMyPubEventsFailed:(NSError *)error;
+
+-(void) getAllMyAttEventsFinished:(NSMutableArray *)list;
+-(void) getAllMyAttEventsFailed:(NSError *)error;
+
+-(void) useTicketFinished;
+-(void) useTicketFailed:(NSError *)error;
+
+-(void) getAllParticipatorFinished:(NSMutableArray *)list;
+-(void) getAllParticipatorFailed:(NSError *)error;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "drSecondViewController.h"
-
+#import "drAppDelegate.h"
 @interface drSecondViewController ()
 
 @end
@@ -51,7 +51,8 @@
 - (IBAction)onClick:(id)sender {
     NSString *name = _userNameTxt.text;
     NSString *pwd = _userPwdTxt.text;
-    drUser *user = [drUser new];
+    drAppDelegate *myDelegate0 = [[UIApplication sharedApplication] delegate];
+    drUser *user = myDelegate0.user;
     user.user_name = name;
     user.user_password = pwd;
     [_userbl login:user];

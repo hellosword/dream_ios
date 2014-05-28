@@ -5,6 +5,7 @@
 
 #import "EventDAODelegate.h"
 #import "drEvent.h"
+#import "drComment.h"
 #import "NSString+URLEncoding.h"
 #import "NSNumber+Message.h"
 #import "ASIFormDataRequest.h"
@@ -18,17 +19,28 @@
 
 @property (weak, nonatomic) id <EventDAODelegate> delegate;
 
-//插入Note方法
--(void) create:(drEvent*)model;
+-(void) createEvent:(drEvent*)model;
 
-//删除Note方法
 -(void) remove:(drEvent*)model;
 
-//修改Note方法
 -(void) modify:(drEvent*)model;
 
-//查询所有数据方法
+-(void) getOneEvent:(drEvent*)model;
+
 -(void) findAll;
 
+-(void) pubComment:(drComment*)model;
+
+-(void) getMoreComments:(drEvent*)model;
+
+-(void) applyForEvent:(drEvent*)model by:(drUser*)user;
+
+-(void) getAllMyPubEvents:(drEvent*)model;
+
+-(void) getAllMyAttEvents:(drEvent*)model;
+
+-(void) useTicket:(drEvent*)model code:(NSString*)code;
+
+-(void) getAllParticipator:(drEvent*)model;
 
 @end

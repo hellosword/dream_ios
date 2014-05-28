@@ -5,6 +5,7 @@
 
 //#import <Foundation/Foundation.h>
 
+#import "drComment.h"
 @class drEvent;
 
 @protocol EventDAODelegate
@@ -30,6 +31,34 @@
 //删除Note方法 失败
 - (void)removeFailed:(NSError *)error;
 
+
+//按照主键查询数据方法 成功
+- (void)getOneEventFinished:(drEvent *)model;
+//按照主键查询数据方法 失败
+- (void)getOneEventFailed:(NSError *)error;
+
+
+- (void)pubCommentFinished:(drComment *)model;
+- (void)pubCommentFailed:(NSError *)error;
+
+- (void)getMoreCommentsFinished:(NSMutableArray *)list;
+- (void)getMoreCommentsFailed:(NSError *)error;
+
+
+-(void) applyForEventFinished;
+-(void) applyForEventFailed:(NSError *)error;
+
+-(void) getAllMyPubEventsFinished:(NSMutableArray *)list;
+-(void) getAllMyPubEventsFailed:(NSError *)error;
+
+-(void) getAllMyAttEventsFinished:(NSMutableArray *)list;
+-(void) getAllMyAttEventsFailed:(NSError *)error;
+
+-(void) useTicketFinished;
+-(void) useTicketFailed:(NSError *)error;
+
+-(void) getAllParticipatorFinished:(NSMutableArray *)list;
+-(void) getAllParticipatorFailed:(NSError *)error;
 /*
 //修改Note方法 成功
 - (void)modifyFinished;

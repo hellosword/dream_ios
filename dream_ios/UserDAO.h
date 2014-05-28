@@ -39,6 +39,9 @@
 -(void) checkUser:(drUser*)model;
 -(void) checkoutUser:(drUser*)model;
 
+-(void) initUser:(drUser*)model;
+-(void) getUserInfo:(drUser*)model;
+-(void) updateUserInfo:(drUser*)model;
 @end
 
 

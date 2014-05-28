@@ -28,14 +28,6 @@
     //self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     
-    drAppDelegate *myDelegate0 = [[UIApplication sharedApplication] delegate];
-    NSDictionary *properties = [[NSMutableDictionary alloc] init];
-    [properties setValue:@"Test Value" forKey:NSHTTPCookieValue];
-    [properties setValue:@"ASIHTTPRequestTestCookie" forKey:NSHTTPCookieName];
-    [properties setValue:@".dreamingwish.com" forKey:NSHTTPCookieDomain];
-    [properties setValue:[NSDate dateWithTimeIntervalSinceNow:60*60] forKey:NSHTTPCookieExpires];
-    [properties setValue:@"/asi-http-request/tests" forKey:NSHTTPCookiePath];
-    myDelegate0.cookie = [[NSHTTPCookie alloc] initWithProperties:properties];
     
     self._bl = [EventBL new];
     self._bl.delegate = self;

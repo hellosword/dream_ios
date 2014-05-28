@@ -1,6 +1,7 @@
 
 
 #import "drEvent.h"
+#import "drComment.h"
 #import "EventDAO.h"
 #import "EventDAODelegate.h"
 #import "EventBLDelegate.h"
@@ -23,4 +24,19 @@
 //修改数据方法
 -(void) modifyEvent:(drEvent*)model;
 
+-(void) getOneEvent:(drEvent*)model;
+
+-(void) pubComment:(drComment*)model;
+
+-(void) getMoreComments:(drEvent*)model;
+
+-(void) applyForEvent:(drEvent*)model by:(drUser*)user;
+
+-(void) getAllMyPubEvents:(drEvent*)model;
+
+-(void) getAllMyAttEvents:(drEvent*)model;
+
+-(void) useTicket:(drEvent*)model code:(NSString*)code;
+
+-(void) getAllParticipator:(drEvent*)model;
 @end

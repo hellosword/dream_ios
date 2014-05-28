@@ -28,5 +28,7 @@
 -(void) login:(drUser*)model;
 
 -(void) logout:(drUser*)model;
+-(void) getUserInfo:(drUser*)model;
+-(void) updateUserInfo:(drUser*)model;
 
 @end

@@ -45,6 +45,14 @@
     [self.dao checkoutUser:model];
 }
 
+-(void) getUserInfo:(drUser*)model{
+    self.dao.delegate = self;
+    [self.dao getUserInfo:model];
+}
+-(void) updateUserInfo:(drUser*)model{
+    self.dao.delegate = self;
+    [self.dao updateUserInfo:model];
+}
 //
 - (void)GetConfirmCodeFinished:(drUser *)model
 {
@@ -91,4 +99,20 @@
     [self.delegate CheckoutUserFailed:error];
 }
 
+- (void)getUserInfoFinished:(drUser *)model{
+    [self.delegate getUserInfoFinished:model];
+}
+- (void)getUserInfoFailed:(NSError *)error{
+    [self.delegate getUserInfoFailed:error];
+    
+}
+
+- (void)updateUserInfoFinished:(drUser *)model{
+    [self.delegate updateUserInfoFinished:model];
+    
+}
+- (void)updateUserInfoFailed:(NSError *)error{
+    [self.delegate updateUserInfoFailed:error];
+    
+}
 @end
