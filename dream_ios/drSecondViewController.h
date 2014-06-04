@@ -25,4 +25,6 @@
 - (IBAction)onClick:(id)sender;
 - (IBAction)pubEventBtnListener:(id)sender;
 
+- (IBAction)checkCodeDown:(id)sender;
+- (IBAction)phoneCodeDown:(id)sender;
 @end

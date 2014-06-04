@@ -1,5 +1,5 @@
 #import "drEvent.h"
-
+#import "drComment.h"
 @protocol EventBLDelegate
 
 @optional

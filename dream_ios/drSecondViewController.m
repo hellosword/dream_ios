@@ -58,6 +58,22 @@
     [_userbl login:user];
 }
 
+- (IBAction)phoneCodeDown:(id)sender{
+    drUser *user = [drUser new];
+    user.telephone = _userNameTxt.text;
+    //@"15201927697";
+    //user.user_password = pwd;
+    [_userbl getConfirmCode:user];
+    
+}
+
+- (IBAction)checkCodeDown:(id)sender{
+    NSString *code = _userNameTxt.text;
+    drUser *user = [drUser new];
+    user.confirm_code = code;
+    [_userbl checkConfirmCode:user];
+    
+}
 - (IBAction)pubEventBtnListener:(id)sender {
     drEvent *e=[drEvent new];
     e.event_title=@"atang shabi";
@@ -66,5 +82,20 @@
     e.activityTime=[NSDate new];
     e.activityLocation=@"703";
     [self.eventbl createEvent:e];
+}
+
+- (void)GetConfirmCodeFinished:(drUser *)model
+{
+}
+- (void)GetConfirmCodeFailed:(NSError *)error;
+{
+
+}
+- (void)CheckConfirmCodeFinished:(drUser *)model;
+{
+    
+}
+- (void)CheckConfirmCodeFailed:(NSError *)error;
+{
 }
 @end

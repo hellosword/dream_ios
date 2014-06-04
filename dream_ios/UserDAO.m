@@ -21,7 +21,7 @@
     NSLog(@"url-->%@",[url description]);
     __weak ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     
-    [request setPostValue:model.confirm_code forKey:@"telephone"];
+    [request setPostValue:model.telephone forKey:@"telephone"];
     drAppDelegate *myDelegate0 = [[UIApplication sharedApplication] delegate];
     [request setUseCookiePersistence:NO];
     [request setRequestCookies:[NSMutableArray arrayWithObject:myDelegate0.cookie]];
@@ -148,7 +148,9 @@
     drAppDelegate *myDelegate0 = [[UIApplication sharedApplication] delegate];
     [request setUseCookiePersistence:NO];
     [request setRequestCookies:[NSMutableArray arrayWithObject:myDelegate0.cookie]];
-    
+    //[request setRequestCookies:myDelegate0.cookie];
+    //NSHTTPCookie *cookies = myDelegate0.cookie;
+    //
     [request setPostValue:model.user_name forKey:@"user_name"];
     [request setPostValue:model.user_password forKey:@"user_password"];
     
