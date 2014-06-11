@@ -22,4 +22,8 @@
 @property(nonatomic, strong) NSString* user_tag;
 @property(nonatomic, strong) NSString* user_alias;
 
+@property(nonatomic, strong) NSString* user_old_password;
+@property(nonatomic, strong) NSString* user_new_password;
+@property(nonatomic, strong) NSString* user_mPasswordType;
+
 @end

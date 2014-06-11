@@ -42,6 +42,13 @@
 -(void) initUser:(drUser*)model;
 -(void) getUserInfo:(drUser*)model;
 -(void) updateUserInfo:(drUser*)model;
+
+//
+
+-(void) getValidateCode:(drUser*)model;
+-(void) confirmValidateCode:(drUser*)model;
+-(void) modifyPassword:(drUser*)model;
+
 @end
 
 

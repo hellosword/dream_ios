@@ -46,4 +46,10 @@
 - (void)CheckUserFailed:(NSError *)error;
 */
 
+-(void) getValidateCodeFinished:(drUser*)model;
+-(void) getValidateCodeFailed:(NSError *)error;
+-(void) confirmValidateCodeFinished:(drUser*)model;
+-(void) confirmValidateCodeFailed:(NSError *)error;
+-(void) modifyPasswordFinished:(drUser*)model;
+-(void) modifyPasswordFailed:(NSError *)error;
 @end
