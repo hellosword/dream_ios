@@ -12,6 +12,7 @@
 #import "NSNumber+Message.h"
 #import "ASIFormDataRequest.h"
 #import "AppInstance.h"
+#import "drAppDelegate.h"
 
 #import "drUser.h"
 #import "UserDAODelegate.h"

@@ -7,7 +7,6 @@
 //
 
 #import "UserDAO.h"
-#import "drAppDelegate.h"
 @implementation UserDAO
 
 -(void) initUser:(drUser*)model

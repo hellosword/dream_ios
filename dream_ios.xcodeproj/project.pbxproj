@@ -45,6 +45,11 @@
 		6EEE233D1904BE6B005FD232 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EEE231C1904BE6A005FD232 /* UIKit.framework */; };
 		6EEE23451904BE6B005FD232 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EEE23431904BE6B005FD232 /* InfoPlist.strings */; };
 		6EEE23471904BE6B005FD232 /* dream_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEE23461904BE6B005FD232 /* dream_iosTests.m */; };
+		6EF467CE1949373400C6E91C /* drGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF467CD1949373400C6E91C /* drGroup.m */; };
+		6EF467D11949375000C6E91C /* drMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF467D01949375000C6E91C /* drMessage.m */; };
+		6EF467D41949377000C6E91C /* drTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF467D31949377000C6E91C /* drTweet.m */; };
+		6EF467D71949395700C6E91C /* GroupDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF467D61949395700C6E91C /* GroupDAO.m */; };
+		6EF467DB194939B700C6E91C /* GroupBL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF467DA194939B700C6E91C /* GroupBL.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +135,18 @@
 		6EEE23421904BE6B005FD232 /* dream_iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dream_iosTests-Info.plist"; sourceTree = "<group>"; };
 		6EEE23441904BE6B005FD232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6EEE23461904BE6B005FD232 /* dream_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dream_iosTests.m; sourceTree = "<group>"; };
+		6EF467CC1949373400C6E91C /* drGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drGroup.h; sourceTree = "<group>"; };
+		6EF467CD1949373400C6E91C /* drGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = drGroup.m; sourceTree = "<group>"; };
+		6EF467CF1949375000C6E91C /* drMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drMessage.h; sourceTree = "<group>"; };
+		6EF467D01949375000C6E91C /* drMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = drMessage.m; sourceTree = "<group>"; };
+		6EF467D21949377000C6E91C /* drTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drTweet.h; sourceTree = "<group>"; };
+		6EF467D31949377000C6E91C /* drTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = drTweet.m; sourceTree = "<group>"; };
+		6EF467D51949395700C6E91C /* GroupDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDAO.h; sourceTree = "<group>"; };
+		6EF467D61949395700C6E91C /* GroupDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDAO.m; sourceTree = "<group>"; };
+		6EF467D81949397B00C6E91C /* GroupDAODelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupDAODelegate.h; sourceTree = "<group>"; };
+		6EF467D9194939B700C6E91C /* GroupBL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupBL.h; sourceTree = "<group>"; };
+		6EF467DA194939B700C6E91C /* GroupBL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupBL.m; sourceTree = "<group>"; };
+		6EF467DC194939CF00C6E91C /* GroupBLDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupBLDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +193,12 @@
 				6E3DFDBE1913981C002F7E79 /* drUser.m */,
 				6E98C6CD19223C34009A0EE9 /* drComment.h */,
 				6E98C6CE19223C34009A0EE9 /* drComment.m */,
+				6EF467CC1949373400C6E91C /* drGroup.h */,
+				6EF467CD1949373400C6E91C /* drGroup.m */,
+				6EF467CF1949375000C6E91C /* drMessage.h */,
+				6EF467D01949375000C6E91C /* drMessage.m */,
+				6EF467D21949377000C6E91C /* drTweet.h */,
+				6EF467D31949377000C6E91C /* drTweet.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -189,6 +212,9 @@
 				6E3DFDC01913A95B002F7E79 /* UserDAO.h */,
 				6E3DFDC11913A95B002F7E79 /* UserDAO.m */,
 				6E3DFDC31913AA9A002F7E79 /* UserDAODelegate.h */,
+				6EF467D51949395700C6E91C /* GroupDAO.h */,
+				6EF467D61949395700C6E91C /* GroupDAO.m */,
+				6EF467D81949397B00C6E91C /* GroupDAODelegate.h */,
 			);
 			name = dao;
 			sourceTree = "<group>";
@@ -202,6 +228,9 @@
 				6E3DFDC41913AD4F002F7E79 /* UserBL.h */,
 				6E3DFDC51913AD4F002F7E79 /* UserBL.m */,
 				6E3DFDC71913AD6A002F7E79 /* UserBLDelegate.h */,
+				6EF467D9194939B700C6E91C /* GroupBL.h */,
+				6EF467DA194939B700C6E91C /* GroupBL.m */,
+				6EF467DC194939CF00C6E91C /* GroupBLDelegate.h */,
 			);
 			name = bll;
 			sourceTree = "<group>";
@@ -467,12 +496,15 @@
 				6EC19DD9190BDD520047283A /* ASIDataCompressor.m in Sources */,
 				6EEE23321904BE6B005FD232 /* drSecondViewController.m in Sources */,
 				6EC19DDC190BDD520047283A /* ASIFormDataRequest.m in Sources */,
+				6EF467DB194939B700C6E91C /* GroupBL.m in Sources */,
 				6EC19DDB190BDD520047283A /* ASIDownloadCache.m in Sources */,
 				6EC1AB8B19137CC20047283A /* drEventListCell.m in Sources */,
 				6EC19DBA190BCCEF0047283A /* NSNumber+Message.m in Sources */,
 				6E3DFDC61913AD4F002F7E79 /* UserBL.m in Sources */,
+				6EF467CE1949373400C6E91C /* drGroup.m in Sources */,
 				6EEE23291904BE6A005FD232 /* drAppDelegate.m in Sources */,
 				6EEE232F1904BE6B005FD232 /* drFirstViewController.m in Sources */,
+				6EF467D11949375000C6E91C /* drMessage.m in Sources */,
 				6E3DFDBF1913981C002F7E79 /* drUser.m in Sources */,
 				6EC19DD8190BDD520047283A /* ASIAuthenticationDialog.m in Sources */,
 				6EC19DDF190BDD520047283A /* ASINetworkQueue.m in Sources */,
@@ -485,8 +517,10 @@
 				6EC19DEF19126FA70047283A /* EventBL.m in Sources */,
 				6EC19DDD190BDD520047283A /* ASIHTTPRequest.m in Sources */,
 				6EC19DBF190BCFBE0047283A /* EventDAO.m in Sources */,
+				6EF467D41949377000C6E91C /* drTweet.m in Sources */,
 				6EEE23251904BE6A005FD232 /* main.m in Sources */,
 				6EC19DE3190BDDAB0047283A /* Reachability.m in Sources */,
+				6EF467D71949395700C6E91C /* GroupDAO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
