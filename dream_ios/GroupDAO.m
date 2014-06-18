@@ -174,7 +174,7 @@
     [request startAsynchronous];
     
 }
-#error <#message#>
+//#error <#message#>
 -(void) getTweet:(drTweet*)model{
     //updateGroup.action
     NSString *str = [NSString stringWithFormat:@"%@/%@",HOST_NAME,@"json/updateGroup.action"];

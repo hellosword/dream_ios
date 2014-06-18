@@ -8,6 +8,7 @@
 
 #import "drSecondViewController.h"
 #import "drAppDelegate.h"
+
 @interface drSecondViewController ()
 
 @end
@@ -24,6 +25,9 @@
     
     self.userbl = [UserBL new];
     self.userbl.delegate = self;
+    
+    self.imgTransUtil = [ImageTransferUtility new];
+    self.imgTransUtil.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,6 +71,16 @@
     
 }
 
+- (IBAction)getImageList:(id)sender {
+    //imgView2;
+    NSString* str0 = @"http://img10.360buyimg.com/da/jfs/t172/193/1037401743/14149/c76dd62/539ea57dNf3b195b8.gif";
+    NSString* str1 = @"http://www.baidu.com/img/baidu_sylogo1.gif";
+    NSMutableArray* ma = [NSMutableArray new];
+    [ma addObject:str0];
+    [ma addObject:str1];
+    [_imgTransUtil startImageListQuery:ma];
+}
+
 - (IBAction)checkCodeDown:(id)sender{
     NSString *code = _userNameTxt.text;
     drUser *user = [drUser new];
@@ -83,6 +97,30 @@
     e.activityLocation=@"703";
     [self.eventbl createEvent:e];
 }
+- (void)getImageListItemFinished:(NSData *)data imgIndex:(int)index
+{
+    
+    UIImage* img;
+    if(index == 0){
+        img = [UIImage imageWithData:data];
+        [_imgView1 setImage:img];
+    }else{
+        img = [UIImage imageWithData:data];
+        [_imgView2 setImage:img];
+    }
+    NSLog(@"load image %d ok",index);
+    
+}
+- (void)getImageListItemFailed:(NSError *)error imgIndex:(int)index
+{
+    NSLog(@"load image %d error",index);
+}
+- (void)getImageListFinished:(int)cnt
+{
+    NSLog(@"load images %d all",cnt);
+    
+}
+
 
 - (void)GetConfirmCodeFinished:(drUser *)model
 {

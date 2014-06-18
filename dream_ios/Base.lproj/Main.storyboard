@@ -113,11 +113,31 @@
                                     <action selector="checkCodeDown:" destination="QUy-BD-bpt" eventType="touchUpInside" id="Fhi-uB-u2c"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jGL-Pc-kFV">
+                                <rect key="frame" x="20" y="244" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="F0T-lL-gOi">
+                                <rect key="frame" x="20" y="380" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2YX-ej-Bod">
+                                <rect key="frame" x="20" y="202" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="getImg">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getImageList:" destination="QUy-BD-bpt" eventType="touchUpInside" id="ZLn-3F-xid"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="Z7h-1E-pvt"/>
                     <connections>
+                        <outlet property="imgView1" destination="jGL-Pc-kFV" id="FAH-ip-QTz"/>
+                        <outlet property="imgView2" destination="F0T-lL-gOi" id="7m9-BX-lOo"/>
                         <outlet property="loginBtn" destination="UjU-nh-gTP" id="GXR-vl-78O"/>
                         <outlet property="userNameTxt" destination="Fz2-5d-9RB" id="UQY-wb-PGc"/>
                         <outlet property="userPwdTxt" destination="Avy-wT-2vA" id="mME-fU-BUR"/>

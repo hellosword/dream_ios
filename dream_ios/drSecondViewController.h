@@ -13,18 +13,26 @@
 #import "UserBL.h"
 #import "drUser.h"
 
-@interface drSecondViewController : UIViewController <EventBLDelegate,UserBLDelegate>
+#import "ImageTransferUtility.h"
+
+@interface drSecondViewController : UIViewController <EventBLDelegate,UserBLDelegate,ImageTransferDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *userNameTxt;
 @property (weak, nonatomic) IBOutlet UITextField *userPwdTxt;
 @property (weak, nonatomic) IBOutlet UITextView *resultTxt;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgView1;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView2;
+
+
 @property (nonatomic,strong) EventBL *eventbl;
 @property (nonatomic,strong) UserBL *userbl;
+@property (nonatomic,strong) ImageTransferUtility *imgTransUtil;
 
 - (IBAction)onClick:(id)sender;
 - (IBAction)pubEventBtnListener:(id)sender;
 
 - (IBAction)checkCodeDown:(id)sender;
 - (IBAction)phoneCodeDown:(id)sender;
+- (IBAction)getImageList:(id)sender;
 @end

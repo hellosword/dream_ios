@@ -50,6 +50,8 @@
 		6EF467D41949377000C6E91C /* drTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF467D31949377000C6E91C /* drTweet.m */; };
 		6EF467D71949395700C6E91C /* GroupDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF467D61949395700C6E91C /* GroupDAO.m */; };
 		6EF467DB194939B700C6E91C /* GroupBL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF467DA194939B700C6E91C /* GroupBL.m */; };
+		6EF467DF194C42E000C6E91C /* ImageTransferUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF467DE194C42E000C6E91C /* ImageTransferUtility.m */; };
+		6EF467E31951CC4000C6E91C /* ConnectionUIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF467E21951CC4000C6E91C /* ConnectionUIController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,11 @@
 		6EF467D9194939B700C6E91C /* GroupBL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupBL.h; sourceTree = "<group>"; };
 		6EF467DA194939B700C6E91C /* GroupBL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupBL.m; sourceTree = "<group>"; };
 		6EF467DC194939CF00C6E91C /* GroupBLDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupBLDelegate.h; sourceTree = "<group>"; };
+		6EF467DD194C42E000C6E91C /* ImageTransferUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTransferUtility.h; sourceTree = "<group>"; };
+		6EF467DE194C42E000C6E91C /* ImageTransferUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTransferUtility.m; sourceTree = "<group>"; };
+		6EF467E0194DB2DB00C6E91C /* ImageTransferDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageTransferDelegate.h; sourceTree = "<group>"; };
+		6EF467E11951CC4000C6E91C /* ConnectionUIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionUIController.h; sourceTree = "<group>"; };
+		6EF467E21951CC4000C6E91C /* ConnectionUIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionUIController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +238,8 @@
 				6EF467D9194939B700C6E91C /* GroupBL.h */,
 				6EF467DA194939B700C6E91C /* GroupBL.m */,
 				6EF467DC194939CF00C6E91C /* GroupBLDelegate.h */,
+				6EF467E11951CC4000C6E91C /* ConnectionUIController.h */,
+				6EF467E21951CC4000C6E91C /* ConnectionUIController.m */,
 			);
 			name = bll;
 			sourceTree = "<group>";
@@ -242,6 +251,9 @@
 				6EC19DB7190BCCEF0047283A /* NSNumber+Message.m */,
 				6EC19DB8190BCCEF0047283A /* NSString+URLEncoding.h */,
 				6EC19DB9190BCCEF0047283A /* NSString+URLEncoding.m */,
+				6EF467DD194C42E000C6E91C /* ImageTransferUtility.h */,
+				6EF467DE194C42E000C6E91C /* ImageTransferUtility.m */,
+				6EF467E0194DB2DB00C6E91C /* ImageTransferDelegate.h */,
 			);
 			name = utility;
 			sourceTree = "<group>";
@@ -510,6 +522,7 @@
 				6EC19DDF190BDD520047283A /* ASINetworkQueue.m in Sources */,
 				6EB1DA541907EB6900FD8E4D /* drEvent.m in Sources */,
 				6EC19DBB190BCCEF0047283A /* NSString+URLEncoding.m in Sources */,
+				6EF467DF194C42E000C6E91C /* ImageTransferUtility.m in Sources */,
 				6E3DFDC21913A95B002F7E79 /* UserDAO.m in Sources */,
 				6E98C6CF19223C34009A0EE9 /* drComment.m in Sources */,
 				6EC19DDA190BDD520047283A /* ASIDataDecompressor.m in Sources */,
@@ -519,6 +532,7 @@
 				6EC19DBF190BCFBE0047283A /* EventDAO.m in Sources */,
 				6EF467D41949377000C6E91C /* drTweet.m in Sources */,
 				6EEE23251904BE6A005FD232 /* main.m in Sources */,
+				6EF467E31951CC4000C6E91C /* ConnectionUIController.m in Sources */,
 				6EC19DE3190BDDAB0047283A /* Reachability.m in Sources */,
 				6EF467D71949395700C6E91C /* GroupDAO.m in Sources */,
 			);
