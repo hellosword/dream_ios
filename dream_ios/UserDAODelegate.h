@@ -52,4 +52,17 @@
 -(void) confirmValidateCodeFailed:(NSError *)error;
 -(void) modifyPasswordFinished:(drUser*)model;
 -(void) modifyPasswordFailed:(NSError *)error;
+
+
+//v3.0
+
+
+-(void) followUserFinished:(drUser*)model;
+-(void) getFollowingUserFinished:(NSMutableArray*)list;
+-(void) searchUserFinished:(NSMutableArray*)list;
+
+-(void) followUserFailed:(NSError*)error;
+-(void) getFollowingUserFailed:(NSError*)error;
+-(void) searchUserFailed:(NSError*)error;
+
 @end

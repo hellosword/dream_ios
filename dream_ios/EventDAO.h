@@ -43,4 +43,7 @@
 
 -(void) getAllParticipator:(drEvent*)model;
 
+-(void) collectEvent:(drEvent*)model;
+
+-(void) getUserCollection:(drEvent*)model;
 @end

@@ -102,6 +102,18 @@
     
 }
 
+-(void) collectEvent:(drEvent*)model
+{
+    self.dao.delegate = self;
+    [self.dao collectEvent:model];
+    
+}
+-(void) getUserCollection:(drEvent*)model
+{
+    self.dao.delegate = self;
+    [self.dao getUserCollection:model];
+    
+}
 #pragma --mark NoteDAODelegate 委托方法
 //查询所有数据方法 成功
 - (void)findAllFinished:(NSMutableArray *)list
@@ -212,4 +224,23 @@
 -(void) getAllParticipatorFailed:(NSError *)error{
     [_delegate getAllParticipatorFailed:error];
 }
+//v3.0
+
+-(void) collectEventFinished:(drEvent *)model
+{
+    [_delegate collectEventFinished:model];
+}
+-(void) getUserCollectionFinished:(NSMutableArray *)list
+{
+    [_delegate getUserCollectionFinished:list];
+}
+-(void) collectEventFailed:(NSError *)error
+{
+    [_delegate collectEventFailed:error];
+}
+-(void) getUserCollectionFailed:(NSError *)error
+{
+    [_delegate getUserCollectionFailed:error];
+}
+
 @end

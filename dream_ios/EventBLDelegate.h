@@ -38,4 +38,14 @@
 
 -(void) getAllParticipatorFinished:(NSMutableArray *)list;
 -(void) getAllParticipatorFailed:(NSError *)error;
+
+//v3.0
+
+-(void) collectEventFinished:(drEvent*)model;
+-(void) getUserCollectionFinished:(NSMutableArray *)list;
+
+-(void) collectEventFailed:(NSError *)error;
+-(void) getUserCollectionFailed:(NSError *)error;
+
+
 @end

@@ -21,14 +21,16 @@
 -(void) registerGroupFinished:(drGroup*)model;
 -(void) approveGroupFinished:(drGroup*)model;
 -(void) updateGroupFinished:(drGroup*)model;
+-(void) getGroupFinished:(NSMutableArray*)list;
 
 -(void) pubTweetFinished:(drTweet*)model;
--(void) getTweetFinished:(drTweet*)model;
+-(void) getTweetFinished:(NSMutableArray*)model;
 -(void) praiseTweetFinished:(drTweet*)model;
 
 -(void) registerGroupFailed:(NSError *)error;
 -(void) approveGroupFailed:(NSError *)error;
 -(void) updateGroupFailed:(NSError *)error;
+-(void) getGroupFailed:(NSError *)error;
 
 -(void) pubTweetFailed:(NSError *)error;
 -(void) getTweetFailed:(NSError *)error;

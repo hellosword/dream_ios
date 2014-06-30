@@ -25,9 +25,10 @@
 //这个接口好像不应该出现在这里，不过还是先加上吧
 -(void) approveGroup:(drGroup*)model;
 -(void) updateGroup:(drGroup*)model;
+-(void) getGrouop:(drGroup*)model;
 
 -(void) pubTweet:(drTweet*)model;
--(void) getTweet:(drTweet*)model;
+-(void) getTweet:(drGroup*)model;
 -(void) praiseTweet:(drTweet*)model;
 
 @end

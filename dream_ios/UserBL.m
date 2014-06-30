@@ -89,6 +89,27 @@
     [self.dao modifyPassword:model];
     
 }
+//v3.0
+
+-(void) followUser:(drUser*)model
+{
+    self.dao.delegate = self;
+    [self.dao followUser:model];
+    
+}
+-(void) getFollowingUser:(drUser*)model
+{
+    self.dao.delegate = self;
+    [self.dao getFollowingUser:model];
+    
+}
+-(void) searchUser:(drUser*)model
+{
+    self.dao.delegate = self;
+    [self.dao searchUser:model];
+    
+}
+
 //------------------------------------------------
 
 -(void) getValidateCodeFinished:(drUser*)model
@@ -182,5 +203,31 @@
 - (void)updateUserInfoFailed:(NSError *)error{
     [self.delegate updateUserInfoFailed:error];
     
+}
+//v3.0
+-(void) followUserFinished:(drUser*)model
+{
+    [self.delegate followUserFinished:model];
+}
+-(void) getFollowingUserFinished:(NSMutableArray*)list
+{
+    [self.delegate getFollowingUserFinished:list];
+}
+-(void) searchUserFinished:(NSMutableArray*)list
+{
+    [self.delegate searchUserFinished:list];
+}
+
+-(void) followUserFailed:(NSError*)error
+{
+    [self.delegate followUserFailed:error];
+}
+-(void) getFollowingUserFailed:(NSError*)error
+{
+    [self.delegate getFollowingUserFailed:error];
+}
+-(void) searchUserFailed:(NSError*)error
+{
+    [self.delegate searchUserFailed:error];
 }
 @end

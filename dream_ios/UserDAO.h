@@ -50,6 +50,11 @@
 -(void) confirmValidateCode:(drUser*)model;
 -(void) modifyPassword:(drUser*)model;
 
+//v3.0
+-(void) followUser:(drUser*)model;
+-(void) getFollowingUser:(drUser*)model;
+-(void) searchUser:(drUser*)model;
+
 @end
 
 

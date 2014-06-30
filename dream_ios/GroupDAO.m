@@ -135,6 +135,46 @@
     
 }
 
+-(void) getGroup:(drGroup*)model
+{
+    //updateGroup.action
+    NSString *str = [NSString stringWithFormat:@"%@/%@",HOST_NAME,@"json/getGroup.action"];
+    NSURL *url = [NSURL URLWithString:[str URLEncodedString]];
+    NSLog(@"url-->%@",[url description]);
+    __weak ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    
+    [request setPostValue:model.user_id forKey:@"user_id"];
+    [request setPostValue:model.groupGettingType forKey:@"type"];
+    
+    drAppDelegate *myDelegate0 = [[UIApplication sharedApplication] delegate];
+    [request setUseCookiePersistence:NO];
+    [request setRequestCookies:[NSMutableArray arrayWithObject:myDelegate0.cookie]];
+    
+    [request setCompletionBlock:^{
+        
+        NSData *data  = [request responseData];
+        NSLog(@"response-->%@\n",[data description]);
+        NSDictionary *resDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSNumber *resultCodeNumber = [resDict objectForKey:@"error_type"];
+        if ([resultCodeNumber integerValue] ==0)
+        {
+            //[self.delegate updateGroupFinished:model];
+        } else {
+            NSInteger resultCode = [resultCodeNumber integerValue];
+            NSString* message = [resDict objectForKey:@"error_message"];
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:message
+                                                                 forKey:NSLocalizedDescriptionKey];
+            NSError *err = [NSError errorWithDomain:@"DAO" code:resultCode userInfo:userInfo];
+            [self.delegate getGroupFailed:err];
+        }
+    }];
+    [request setFailedBlock:^{
+        NSError *error = [request error];
+        [self.delegate getGroupFailed:error];
+    }];
+    [request startAsynchronous];
+    
+}
 -(void) pubTweet:(drTweet*)model{
     //updateGroup.action
     NSString *str = [NSString stringWithFormat:@"%@/%@",HOST_NAME,@"json/pubTweet.action"];
@@ -174,16 +214,26 @@
     [request startAsynchronous];
     
 }
-//#error <#message#>
--(void) getTweet:(drTweet*)model{
+
+#error unfinished
+-(void) getTweet:(drGroup*)model{
     //updateGroup.action
-    NSString *str = [NSString stringWithFormat:@"%@/%@",HOST_NAME,@"json/updateGroup.action"];
+    NSString *str = [NSString stringWithFormat:@"%@/%@",HOST_NAME,@"json/pubTweet.action"];
     NSURL *url = [NSURL URLWithString:[str URLEncodedString]];
     NSLog(@"url-->%@",[url description]);
     __weak ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     
-    [request setPostValue:model.group_id forKey:@"group_id"];
-    [request setPostValue:model.content forKey:@"content"];
+    [request setPostValue:model.tweetGettingType forKey:@"type"];
+    if( [model.tweetGettingType caseInsensitiveCompare:@"list"] == NSOrderedSame)
+    {
+        [request setPostValue:model.group_id forKey:@"group_id"];
+        
+        if(model.tweet_id>0){
+            [request setPostValue:[NSNumber numberWithInt:model.tweet_id] forKey:@"tweet_id"];
+        }
+    }else{
+        [request setPostValue:[NSNumber numberWithInt:model.tweet_id] forKey:@"tweet_id"];
+    }
     
     drAppDelegate *myDelegate0 = [[UIApplication sharedApplication] delegate];
     [request setUseCookiePersistence:NO];
@@ -197,19 +247,20 @@
         NSNumber *resultCodeNumber = [resDict objectForKey:@"error_type"];
         if ([resultCodeNumber integerValue] ==0)
         {
-            [self.delegate pubTweetFinished:model];
+
+            //[self.delegate getTweetFinished:model];
         } else {
             NSInteger resultCode = [resultCodeNumber integerValue];
             NSString* message = [resDict objectForKey:@"error_message"];
             NSDictionary *userInfo = [NSDictionary dictionaryWithObject:message
                                                                  forKey:NSLocalizedDescriptionKey];
             NSError *err = [NSError errorWithDomain:@"DAO" code:resultCode userInfo:userInfo];
-            [self.delegate pubTweetFailed:err];
+            [self.delegate getTweetFailed:err];
         }
     }];
     [request setFailedBlock:^{
         NSError *error = [request error];
-        [self.delegate pubTweetFailed:error];
+        [self.delegate getTweetFailed:error];
     }];
     [request startAsynchronous];
     

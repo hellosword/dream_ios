@@ -37,6 +37,12 @@
     [self.dao updateGroup:model];
     
 }
+-(void) getGroup:(drGroup*)model
+{
+    self.dao.delegate = self;
+    [self.dao getGroup:model];
+    
+}
 
 -(void) pubTweet:(drTweet*)model
 {
@@ -44,7 +50,7 @@
     [self.dao pubTweet:model];
     
 }
--(void) getTweet:(drTweet*)model
+-(void) getTweet:(drGroup*)model
 {
     self.dao.delegate = self;
     [self.dao getTweet:model];
@@ -74,13 +80,18 @@
     [self.delegate updateGroupFinished:model];
     
 }
+-(void) getGroupFinished:(drGroup*)model
+{
+    [self.delegate getGroupFinished:model];
+    
+}
 
 -(void) pubTweetFinished:(drTweet*)model
 {
     [self.delegate pubTweetFinished:model];
     
 }
--(void) getTweetFinished:(drTweet*)model
+-(void) getTweetFinished:(NSMutableArray*)model
 {
     [self.delegate getTweetFinished:model];
     
@@ -104,6 +115,11 @@
 -(void) updateGroupFailed:(NSError *)error
 {
     [self.delegate updateGroupFailed:error];
+    
+}
+-(void) getGroupFailed:(NSError *)error
+{
+    [self.delegate getGroupFailed:error];
     
 }
 

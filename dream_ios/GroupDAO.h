@@ -25,9 +25,10 @@
 -(void) registerGroup:(drGroup*)model;
 -(void) approveGroup:(drGroup*)model;
 -(void) updateGroup:(drGroup*)model;
+-(void) getGroup:(drGroup*)model;
 
 -(void) pubTweet:(drTweet*)model;
--(void) getTweet:(drTweet*)model;
+-(void) getTweet:(drGroup*)model;
 -(void) praiseTweet:(drTweet*)model;
 
 @end

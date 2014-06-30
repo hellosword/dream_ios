@@ -30,6 +30,7 @@
 		6EC19DEB190BDEC70047283A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC19DEA190BDEC70047283A /* libz.dylib */; };
 		6EC19DEF19126FA70047283A /* EventBL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC19DEE19126FA70047283A /* EventBL.m */; };
 		6EC1AB8B19137CC20047283A /* drEventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1AB8A19137CC20047283A /* drEventListCell.m */; };
+		6EC68259195FFA53007CBB2C /* drThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC68258195FFA53007CBB2C /* drThirdViewController.m */; };
 		6EEE23191904BE6A005FD232 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EEE23181904BE6A005FD232 /* Foundation.framework */; };
 		6EEE231B1904BE6A005FD232 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EEE231A1904BE6A005FD232 /* CoreGraphics.framework */; };
 		6EEE231D1904BE6A005FD232 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EEE231C1904BE6A005FD232 /* UIKit.framework */; };
@@ -116,6 +117,8 @@
 		6EC19DEE19126FA70047283A /* EventBL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventBL.m; sourceTree = "<group>"; };
 		6EC1AB8919137CC20047283A /* drEventListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drEventListCell.h; sourceTree = "<group>"; };
 		6EC1AB8A19137CC20047283A /* drEventListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = drEventListCell.m; sourceTree = "<group>"; };
+		6EC68257195FFA53007CBB2C /* drThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drThirdViewController.h; sourceTree = "<group>"; };
+		6EC68258195FFA53007CBB2C /* drThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = drThirdViewController.m; sourceTree = "<group>"; };
 		6EEE23151904BE6A005FD232 /* dream_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dream_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EEE23181904BE6A005FD232 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6EEE231A1904BE6A005FD232 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -372,6 +375,8 @@
 				6EEE232E1904BE6B005FD232 /* drFirstViewController.m */,
 				6EEE23301904BE6B005FD232 /* drSecondViewController.h */,
 				6EEE23311904BE6B005FD232 /* drSecondViewController.m */,
+				6EC68257195FFA53007CBB2C /* drThirdViewController.h */,
+				6EC68258195FFA53007CBB2C /* drThirdViewController.m */,
 				6EEE23331904BE6B005FD232 /* Images.xcassets */,
 				6EEE231F1904BE6A005FD232 /* Supporting Files */,
 			);
@@ -530,6 +535,7 @@
 				6EC19DEF19126FA70047283A /* EventBL.m in Sources */,
 				6EC19DDD190BDD520047283A /* ASIHTTPRequest.m in Sources */,
 				6EC19DBF190BCFBE0047283A /* EventDAO.m in Sources */,
+				6EC68259195FFA53007CBB2C /* drThirdViewController.m in Sources */,
 				6EF467D41949377000C6E91C /* drTweet.m in Sources */,
 				6EEE23251904BE6A005FD232 /* main.m in Sources */,
 				6EF467E31951CC4000C6E91C /* ConnectionUIController.m in Sources */,

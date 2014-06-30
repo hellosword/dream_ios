@@ -257,7 +257,13 @@
         if ([resultCodeNumber integerValue] ==0)
         {
             NSDictionary* dic = [resDict objectForKey:@"user"];
-            
+            model.user_image = [dic objectForKey:@"avatar"];
+            model.user_email = [dic objectForKey:@"email"];
+            model.user_gender = [dic objectForKey:@"gender"];
+            model.telephone = [dic objectForKey:@"telephone"];
+            model.user_id = [dic objectForKey:@"userId"];
+            model.user_type = [dic objectForKey:@"userType"];
+            model.user_name = [dic objectForKey:@"username"];
                         /**/
             NSArray *cookies = [ request responseCookies ];
             // 打印 sessionid
@@ -360,6 +366,8 @@
     __weak ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     
     [request setPostValue:model.telephone forKey:@"telephone"];
+    [request setPostValue:@"findPassword" forKey:@"type"];
+    
     drAppDelegate *myDelegate0 = [[UIApplication sharedApplication] delegate];
     [request setUseCookiePersistence:NO];
     [request setRequestCookies:[NSMutableArray arrayWithObject:myDelegate0.cookie]];
@@ -459,12 +467,6 @@
     [request setUseCookiePersistence:NO];
     [request setRequestCookies:[NSMutableArray arrayWithObject:myDelegate0.cookie]];
     
-    /*
-     
-     @property(nonatomic, strong) NSString* user_old_password;
-     @property(nonatomic, strong) NSString* user_new_password;
-     */
-    //user_email=x&user_gender=x&image=x
     if(model.user_mPasswordType == nil){
         model.user_mPasswordType = @"common";
     }
@@ -510,5 +512,153 @@
     }];
     [request startAsynchronous];
 
+}
+
+-(void) followUser:(drUser*)model
+{
+    
+    NSString *str = [NSString stringWithFormat:@"%@/%@",HOST_NAME,@"json/followUser.action"];
+    NSURL *url = [NSURL URLWithString:[str URLEncodedString]];
+    NSLog(@"url-->%@",[url description]);
+    __weak ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    
+    [request setPostValue:model.user_id forKey:@"user_id"];
+    drAppDelegate *myDelegate0 = [[UIApplication sharedApplication] delegate];
+    [request setUseCookiePersistence:NO];
+    [request setRequestCookies:[NSMutableArray arrayWithObject:myDelegate0.cookie]];
+    
+    [request setCompletionBlock:^{
+        
+        NSData *data  = [request responseData];
+        NSLog(@"response-->%@\n",[data description]);
+        NSDictionary *resDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSNumber *resultCodeNumber = [resDict objectForKey:@"error_type"];
+        if ([resultCodeNumber integerValue] ==0)
+        {
+            [self.delegate followUserFinished:model];
+        } else {
+            NSInteger resultCode = [resultCodeNumber integerValue];
+            NSString* message = [resDict objectForKey:@"error_message"];
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:message
+                                                                 forKey:NSLocalizedDescriptionKey];
+            NSError *err = [NSError errorWithDomain:@"DAO" code:resultCode userInfo:userInfo];
+            [self.delegate followUserFailed:err];
+        }
+    }];
+    [request setFailedBlock:^{
+        NSError *error = [request error];
+        [self.delegate followUserFailed:error];
+    }];
+    [request startAsynchronous];
+}
+-(void) getFollowingUser:(drUser*)model
+{
+    NSString *str = [NSString stringWithFormat:@"%@/%@",HOST_NAME,@"json/getFollowingUser.action"];
+    NSURL *url = [NSURL URLWithString:[str URLEncodedString]];
+    NSLog(@"url-->%@",[url description]);
+    __weak ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    
+    [request setPostValue:model.user_id forKey:@"user_id"];
+    drAppDelegate *myDelegate0 = [[UIApplication sharedApplication] delegate];
+    [request setUseCookiePersistence:NO];
+    [request setRequestCookies:[NSMutableArray arrayWithObject:myDelegate0.cookie]];
+    
+    [request setCompletionBlock:^{
+        
+        NSData *data  = [request responseData];
+        NSLog(@"response-->%@\n",[data description]);
+        NSDictionary *resDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSNumber *resultCodeNumber = [resDict objectForKey:@"error_type"];
+        if ([resultCodeNumber integerValue] ==0)
+        {
+            NSMutableArray* listDict = [resDict objectForKey:@"users"];
+            
+            NSMutableArray *listData = [NSMutableArray new];
+            
+            for (NSDictionary* dic in listDict) {
+                drUser *userItem = [drUser new];
+                userItem.user_image = [dic objectForKey:@"avatar"];
+                userItem.user_email = [dic objectForKey:@"email"];
+                userItem.user_gender = [dic objectForKey:@"gender"];
+                userItem.telephone = [dic objectForKey:@"telephone"];
+                userItem.user_id = [dic objectForKey:@"userId"];
+                userItem.user_type = [dic objectForKey:@"userType"];
+                userItem.user_name = [dic objectForKey:@"username"];
+                
+                [listData addObject:userItem];
+            }
+            [self.delegate getFollowingUserFinished:listData];
+        } else {
+            NSInteger resultCode = [resultCodeNumber integerValue];
+            NSString* message = [resDict objectForKey:@"error_message"];
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:message
+                                                                 forKey:NSLocalizedDescriptionKey];
+            NSError *err = [NSError errorWithDomain:@"DAO" code:resultCode userInfo:userInfo];
+            [self.delegate getFollowingUserFailed:err];
+        }
+    }];
+    [request setFailedBlock:^{
+        NSError *error = [request error];
+        [self.delegate getFollowingUserFailed:error];
+    }];
+    [request startAsynchronous];
+    
+}
+-(void) searchUser:(drUser*)model
+{
+    NSString *str = [NSString stringWithFormat:@"%@/%@",HOST_NAME,@"json/getFollowingUser.action"];
+    NSURL *url = [NSURL URLWithString:[str URLEncodedString]];
+    NSLog(@"url-->%@",[url description]);
+    __weak ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    
+    if(model.user_id>0){
+        [request setPostValue:model.user_id forKey:@"user_id"];
+    }
+    [request setPostValue:model.user_name forKey:@"username"];
+    
+    drAppDelegate *myDelegate0 = [[UIApplication sharedApplication] delegate];
+    [request setUseCookiePersistence:NO];
+    [request setRequestCookies:[NSMutableArray arrayWithObject:myDelegate0.cookie]];
+    
+    [request setCompletionBlock:^{
+        
+        NSData *data  = [request responseData];
+        NSLog(@"response-->%@\n",[data description]);
+        NSDictionary *resDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSNumber *resultCodeNumber = [resDict objectForKey:@"error_type"];
+        if ([resultCodeNumber integerValue] ==0)
+        {
+            NSMutableArray* listDict = [resDict objectForKey:@"users"];
+            
+            NSMutableArray *listData = [NSMutableArray new];
+            
+            for (NSDictionary* dic in listDict) {
+                drUser *userItem = [drUser new];
+                userItem.user_image = [dic objectForKey:@"avatar"];
+                userItem.user_email = [dic objectForKey:@"email"];
+                userItem.user_gender = [dic objectForKey:@"gender"];
+                userItem.telephone = [dic objectForKey:@"telephone"];
+                userItem.user_id = [dic objectForKey:@"userId"];
+                userItem.user_type = [dic objectForKey:@"userType"];
+                userItem.user_name = [dic objectForKey:@"username"];
+                
+                [listData addObject:userItem];
+            }
+            [self.delegate getFollowingUserFinished:listData];
+        } else {
+            NSInteger resultCode = [resultCodeNumber integerValue];
+            NSString* message = [resDict objectForKey:@"error_message"];
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:message
+                                                                 forKey:NSLocalizedDescriptionKey];
+            NSError *err = [NSError errorWithDomain:@"DAO" code:resultCode userInfo:userInfo];
+            [self.delegate getFollowingUserFailed:err];
+        }
+    }];
+    [request setFailedBlock:^{
+        NSError *error = [request error];
+        [self.delegate getFollowingUserFailed:error];
+    }];
+    [request startAsynchronous];
+    
 }
 @end
